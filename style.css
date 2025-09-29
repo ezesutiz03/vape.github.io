@@ -1,0 +1,175 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#7c3aed;
+  --accent2:#9333ea;
+  --muted:#9aa4b2;
+  --glass: rgba(255,255,255,0.07);
+  --radius:14px;
+  --maxw:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family: 'Inter', system-ui, Arial; 
+  background: var(--bg); 
+  color: #e6eef6;
+}
+
+/* Header */
+header{
+  position:sticky; top:0; z-index:50;
+  background: rgba(15,23,36,0.95); 
+  backdrop-filter: blur(8px);
+  padding:20px 30px; 
+  display:flex; justify-content:space-between; align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:48px;height:48px;border-radius:12px;
+  background: linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;
+}
+nav{display:flex;gap:18px}
+nav a{
+  color:#e6eef6; text-decoration:none; font-weight:600; font-size:15px;
+  padding:6px 10px; border-radius:8px; transition: all 0.2s;
+}
+nav a:hover{background:var(--glass); color: var(--accent)}
+
+/* Hero */
+.hero{
+  text-align:center;
+  padding:100px 20px; 
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://mipod.com/cdn/shop/collections/lm-MO20000_mobile-collection-banner.jpg?v=1740607833&width=2048') no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+.hero h1{font-size:48px;margin-bottom:16px;color:white;}
+.hero p{font-size:18px;margin-bottom:24px;color:var(--muted);}
+.btn-primary{
+  background: linear-gradient(135deg,var(--accent),var(--accent2));
+  padding:14px 28px; border:none; border-radius:12px; font-weight:700; color:white;
+  cursor:pointer; transition: all 0.3s;
+}
+
+.btn-primary:hover{transform: translateY(-3px); box-shadow: 0 8px 15px rgba(124,58,237,0.3);}
+
+/* Sections */
+section{max-width:var(--maxw); margin:0 auto; padding:60px 20px;}
+h2{font-size:32px;margin-bottom:24px;color:white;text-align:center;}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px;}
+.card{
+  background:var(--card); border-radius:var(--radius); overflow:hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{transform: translateY(-6px); box-shadow: 0 12px 25px rgba(124,58,237,0.4);}
+.card img{width:100%;height:180px;object-fit:cover;}
+.card h3{margin:12px 0 4px 0;font-size:20px;}
+.meta{color:var(--muted);font-size:14px;margin-bottom:6px;}
+.price{font-weight:700;margin-bottom:10px;}
+.stock{font-size:12px;color:#fbbf24;margin-bottom:6px;}
+.btn-add{
+  width:100%; padding:10px; background: linear-gradient(135deg,var(--accent),var(--accent2));
+  border:none; border-radius:10px; color:white; font-weight:600; cursor:pointer;
+  transition: all 0.3s;
+}
+.btn-add:hover{opacity:0.9; transform: translateY(-2px);}
+
+.about p{max-width:800px;margin:0 auto;font-size:16px;color:#cbd5e1;line-height:1.6;text-align:center;}
+
+/* Botones flotantes */
+.btn-floating{
+  position:fixed;right:20px;padding:14px 18px;
+  background: var(--accent); color:white; border:none;border-radius:16px;
+  cursor:pointer; z-index:1000; font-weight:700; font-size:18px; box-shadow: 0 6px 15px rgba(124,58,237,0.4);
+  transition: transform 0.2s;
+}
+.btn-floating:hover{transform: translateY(-3px);}
+.admin-btn{top:140px;}
+#cartBtn{top:80px;}
+
+/* Panel Carrito */
+.cart-panel{
+  display:none; position:fixed; top:0; right:0; width:380px; height:100%;
+  background: var(--card); backdrop-filter: blur(10px); padding:24px; z-index:1001;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.5); border-left:1px solid rgba(255,255,255,0.05);
+  overflow:auto; border-radius:12px 0 0 12px;
+}
+.cart-list .cart-item{
+  display:flex; gap:12px; align-items:center; margin-bottom:12px;
+  padding:8px; background: rgba(255,255,255,0.05); border-radius:10px;
+}
+.cart-item img{width:50px; height:50px; border-radius:8px; object-fit:cover;}
+.qty button{
+  padding:4px 10px; border:none; border-radius:6px; background:var(--accent2); color:white;
+  cursor:pointer; font-weight:600;
+}
+.qty span{padding:0 8px;}
+.total{margin-top:20px; display:flex; justify-content:space-between;font-weight:700;font-size:16px;}
+.order-ref{width:100%;margin-top:10px;padding:10px;border-radius:10px;border:1px solid #555;background:var(--card);color:white;}
+.whatsapp{
+  width:100%; margin-top:14px; padding:14px; border-radius:12px; border:none; font-weight:700; font-size:16px; cursor:pointer;
+  background:#25D366;color:white
+}
+
+/* Panel Admin Modal */
+.admin-panel{
+  display:none; position:fixed; top:50%; left:50%; transform: translate(-50%,-50%);
+  width:90%; max-width:1000px; height:80%; background: var(--card); backdrop-filter: blur(12px);
+  padding:24px; z-index:1002; border-radius:20px; overflow:auto; box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+.admin-container h2{text-align:center;margin-bottom:20px;}
+.btn-close{
+  padding:6px 12px; margin-bottom:20px; background:#4c1d95;color:white; border:none;border-radius:8px; cursor:pointer;
+  font-weight:600;
+  position:absolute; top:16px; right:16px;
+}
+.admin-tabs{display:flex; justify-content:center; gap:12px; margin-bottom:20px;}
+.tab-btn{
+  padding:8px 16px; border:none; border-radius:10px; cursor:pointer; font-weight:600;
+  background: rgba(124,58,237,0.2); color:white; transition: all 0.2s;
+}
+.tab-btn.active{background: linear-gradient(135deg,var(--accent),var(--accent2));}
+.tab-btn:hover{opacity:0.9;}
+.tab-content{overflow:auto; max-height:60vh; padding-right:10px;}
+
+/* Admin grid */
+.admin-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;
+}
+.admin-card{
+  background: rgba(255,255,255,0.05); border-radius:14px; padding:12px;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.admin-card img{width:100%; height:120px; object-fit:cover; border-radius:12px; margin-bottom:8px;}
+.admin-card button{
+  margin:4px 2px; padding:6px 10px; border:none; border-radius:8px; cursor:pointer;
+  font-weight:600; color:white; transition: all 0.2s;
+}
+.edit-btn{background:#f59e0b;}
+.delete-btn{background:#ef4444;}
+.admin-card button:hover{opacity:0.9; transform:translateY(-2px);}
+
+/* Orders */
+.orders-grid{
+  display:grid; grid-template-columns:1fr; gap:12px;
+}
+.order-card{
+  background: rgba(255,255,255,0.05); padding:12px; border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+.order-card p{margin:4px 0; color:#cbd5e1; font-size:14px;}
+
+/* Footer */
+footer{text-align:center;color:var(--muted);font-size:14px;margin:40px 0;}
+
+/* Responsive */
+@media(max-width:768px){
+  .grid, .admin-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:36px;}
+  .hero p{font-size:16px;}
+  .admin-panel{height:90%;}
+}

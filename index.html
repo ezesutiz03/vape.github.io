@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VapeHouse — Tienda</title>
+  <meta name="description" content="VapeHouse — Vapers, líquidos y accesorios. Compra fácil por WhatsApp." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+<header>
+  <div class="brand">
+    <div class="logo">VH</div>
+    <strong>VapeHouse</strong>
+  </div>
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="https://wa.me/5493764522045" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/ezesutiz7" target="_blank">Instagram</a>
+  </nav>
+</header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Bienvenido a VapeHouse</h1>
+    <p>Tu experiencia de vaping comienza aquí. Descubre nuestros productos exclusivos y compra fácil por WhatsApp.</p>
+    <a href="#productos" class="btn-primary">Ver Productos</a>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos">
+    <h2>Productos destacados</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="about">
+    <h2>Nosotros</h2>
+    <p>
+      En VapeHouse nos dedicamos a ofrecer la mejor experiencia en vaping. Contamos con productos de alta calidad, líquidos exclusivos y un servicio personalizado. Nuestro objetivo es que cada cliente encuentre exactamente lo que necesita, con la seguridad y confianza que nos caracteriza.
+    </p>
+  </section>
+
+  <!-- Botones flotantes -->
+  <button id="cartBtn" class="btn-floating">🛒</button>
+  <button id="adminBtn" class="btn-floating admin-btn">⚙️</button>
+
+  <!-- Panel Carrito -->
+  <div id="cartPanel" class="cart-panel">
+    <h2>Tu carrito</h2>
+    <button onclick="closeCart()" class="btn-close">✖</button>
+    <div class="cart-list" id="cartListPanel"><div>Carrito vacío</div></div>
+    <input id="orderRef" class="order-ref" placeholder="Referencia (opcional)">
+    <div class="total">
+      <span>Total</span><span id="totalPanel">$0</span>
+    </div>
+    <button class="whatsapp" onclick="checkout()">Comprar por WhatsApp</button>
+  </div>
+
+  <!-- Panel Admin -->
+  <div id="adminPanel" class="admin-panel">
+    <button class="btn-close" onclick="closeAdmin()">✖</button>
+    <div class="admin-container">
+      <h2>Panel de Administrador</h2>
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="productsTab">Productos</button>
+        <button class="tab-btn" data-tab="addTab">Agregar Producto</button>
+        <button class="tab-btn" data-tab="ordersTab">Pedidos</button>
+      </div>
+
+      <!-- Contenido Productos -->
+      <div class="tab-content" id="productsTab">
+        <div class="admin-grid" id="adminProducts"></div>
+      </div>
+
+      <!-- Contenido Agregar -->
+      <div class="tab-content" id="addTab" style="display:none;">
+        <div class="admin-form">
+          <input id="prodName" placeholder="Nombre">
+          <input id="prodDesc" placeholder="Descripción">
+          <input id="prodPrice" placeholder="Precio" type="number">
+          <input id="prodStock" placeholder="Stock" type="number">
+          <input id="prodImg" placeholder="URL Imagen">
+          <button onclick="addProduct()">Agregar</button>
+        </div>
+      </div>
+
+      <!-- Contenido Pedidos -->
+      <div class="tab-content" id="ordersTab" style="display:none;">
+        <div class="orders-grid" id="orderHistory"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 VapeHouse. Prohibida la venta a menores de 18 años.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
